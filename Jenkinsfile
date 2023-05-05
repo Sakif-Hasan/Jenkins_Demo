@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                def var = RUN.getLog().toString()
                 echo "Fetch the source code from the ${DIRECTORY_PATH}."
                 echo ' Building .... '
             }
@@ -51,6 +50,9 @@ pipeline {
             steps {
                 echo " Deployed to ${PRODUCTION_ENVIRONMENT} "
             }
+        }
+        stage("Console Log"){
+            echo ${BUILD_URL}/consoleText
         }
     }
 }
