@@ -58,7 +58,7 @@ pipeline {
                 //script{
                 //    def cLog = readFile "${BUILD_URL}/consoleText"
                 //}
-                wget ${BUILD_URL}/consoleText
+                wget "${BUILD_URL}/consoleText"
                 //echo cLog
             }
         }
