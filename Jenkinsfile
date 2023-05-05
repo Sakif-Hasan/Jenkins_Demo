@@ -15,7 +15,7 @@ pipeline {
                 success{
                     mail to: "sakifhasan.work@gmail.com",
                     subject: "Jenkins Build Status Email",
-                        body: " Build Successful ${BUILD_URL/}"
+                        body: " Build Successful ${currentBuild.rawBuild.log}"
                 }
             }
         }
