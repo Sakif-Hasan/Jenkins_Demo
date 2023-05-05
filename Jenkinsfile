@@ -52,7 +52,9 @@ pipeline {
             }
         }
         stage("Console Log"){
-            echo ${BUILD_URL}/consoleText
+            steps{
+                echo ${BUILD_URL}/consoleText
+            }
         }
     }
 }
