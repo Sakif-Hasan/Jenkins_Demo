@@ -4,6 +4,7 @@ pipeline {
         DIRECTORY_PATH = ' Github '
         TESTING_ENVIRONMENT = ' AWS Elastic Beanstalk '
         PRODUCTION_ENVIRONMENT = ' AWS Elastic Compute Cloud '
+        CONSOLE_LOG = '${BUILD_URL}'
     }
     stages {
         stage('Build') {
@@ -15,7 +16,7 @@ pipeline {
                 success{
                     mail to: "sakifhasan.work@gmail.com",
                     subject: "Jenkins Build Status Email",
-                    body: " Build Successful "
+                        body: " Build Successful ${CONSOLE_LOG}"
                 }
             }
         }
@@ -49,7 +50,6 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo " Deployed to ${PRODUCTION_ENVIRONMENT} "
-                returnStdout
             }
         }
     }
