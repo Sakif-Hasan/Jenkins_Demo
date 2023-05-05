@@ -56,7 +56,7 @@ pipeline {
             steps {
                 //echo "${BUILD_URL}/consoleText"
                 script{
-                    cat ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log >> log.txt
+                    def cLog = readFile "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log >> log.txt"
                 }
                 echo cLog
             }
