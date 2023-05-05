@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    def directory = "${env.WORKSPACE}/Github Integration"
+
     environment{
         DIRECTORY_PATH = ' Github '
         TESTING_ENVIRONMENT = ' AWS Elastic Beanstalk '
@@ -55,8 +55,7 @@ pipeline {
         stage("Console Log"){
             steps {
                 echo "${BUILD_URL}/consoleText.txt"
-                def consoleOutput = readFile directory + '/consoleText.txt'
-                echo consoleOutput
+                echo pwd
             }
         }
     }
