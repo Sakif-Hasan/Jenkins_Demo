@@ -56,6 +56,13 @@ pipeline {
             steps {
                 echo "${BUILD_URL}/consoleText"
             }
+            post{
+                success{
+                    mail to: "sakifhasan.work@gmail.com",
+                    subject: "Jenkins Build Console Log",
+                    body: " Build Successful ${BUILD_URL}/consoleText"
+                }
+            }
         }
     }
 }
