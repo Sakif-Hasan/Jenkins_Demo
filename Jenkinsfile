@@ -54,9 +54,13 @@ pipeline {
         }
         stage("Console Log"){
             steps {
-                script{
-                    sh "curl  ${BUILD_URL}/consoleText -o /Documents/log.txt"
-                }
+                script {
+                    def directory = "${env.WORKSPACE}/Github integration"
+                    def logContent = Jenkins.getInstance().getItemByFullName(env.JOB_NAME).getBuildByNumber(
+                    Integer.parseInt(env.BUILD_NUMBER)).logFile.text
+                    // copy the log in the job's own workspace
+                    writeFile file: directory + "/buildConsolelog.txt",
+                    text: logContent
                 //echo "${BUILD_URL}/consoleText"
             }
         }
