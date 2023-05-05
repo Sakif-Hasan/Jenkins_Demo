@@ -54,7 +54,10 @@ pipeline {
         }
         stage("Console Log"){
             steps {
-                echo "${BUILD_URL}/consoleText"
+                script{
+                    sh "${BUILD_URL}/consoleText >> log.txt"
+                }
+                //echo "${BUILD_URL}/consoleText"
             }
         }
     }
