@@ -61,7 +61,7 @@ pipeline {
                 //script{
                 //    dir()def consoleLog = readFile "${BUILD_URL}/consoleText"
                 //}
-                echo consoleLog
+                echo cLog
             }
         }
     }
