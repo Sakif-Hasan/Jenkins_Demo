@@ -56,8 +56,7 @@ pipeline {
             steps {
                 //echo "${BUILD_URL}/consoleText"
                 script{
-                    env.WORKSPACE = pwd()
-                    def version = readFile "${env.WORKSPACE}/version.txt"
+                    def consoleLog = ${BUILD_URL}/consoleText
                 }
                 echo "${consoleLog}"
                 echo consoleLog
