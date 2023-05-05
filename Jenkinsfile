@@ -53,7 +53,9 @@ pipeline {
         }
         stage("Console Log"){
             steps {
-                echo "${BUILD_URL}/consoleText"
+                echo "${BUILD_URL}/consoleText.txt"
+                def consoleOutput = readFile directory + '/consoleText.txt'
+                echo consoleOutput
             }
         }
     }
