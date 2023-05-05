@@ -58,7 +58,6 @@ pipeline {
                 script{
                     def consoleLog = ${BUILD_URL}/consoleText
                 }
-                echo "${consoleLog}"
                 echo consoleLog
             }
         }
