@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment{
-        DIRECTORY_PATH = ' Github Repo '
-        TESTING_ENVIRONMENT = ' Plutora '
-        PRODUCTION_ENVIRONMENT = ' Digital Ocean '
+        DIRECTORY_PATH = ' Github '
+        TESTING_ENVIRONMENT = ' AWS Elastic Beanstalk '
+        PRODUCTION_ENVIRONMENT = ' AWS Elastic Compute Cloud '
     }
     stages {
         stage('Build') {
@@ -19,25 +19,30 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Unit & Integration Test') {
             steps {
                 echo 'Jest Test Successful'
                 echo 'Jasmine Integration Test Successful'
             }
         }
-        stage('Code Quality Check') {
+        stage('Code Analysis') {
             steps {
-                echo 'Check the quality of the code.'
+                echo ' Embold Code Review Successful '
             }
         }
-        stage('Deploy') {
+        stage('Security Scan') {
             steps {
-                echo " Deployed for testing to ${TESTING_ENVIRONMENT}"
+                echo " AWS Inspector Review Succecssful "
             }
         }
-        stage('Approval') {
+        stage('Deploy to Staging') {
             steps {
-                sleep(time: 10, unit: 'SECONDS')
+                echo " Application Staged in AWS Elastic Beanstalk Successfully "
+            }
+        }
+        stage('Integration Test Staging') {
+            steps {
+                echo 'AWS Elastic Beanstalk Integration Test Successful'
                 echo " Approved "
             }
         }
