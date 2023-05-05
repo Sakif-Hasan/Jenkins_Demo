@@ -55,14 +55,9 @@ pipeline {
         stage("Console Log"){
             steps {
                 //echo "${BUILD_URL}/consoleText"
-                dir('BUILD_URL'){
-                    script {
-                        def cLog = readFile "/consoleText"
-                    }
+                script{
+                    cat ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log >> log.txt
                 }
-                //script{
-                //    dir()def consoleLog = readFile "${BUILD_URL}/consoleText"
-                //}
                 echo cLog
             }
         }
