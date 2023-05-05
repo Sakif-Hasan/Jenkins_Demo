@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                def buildLog = currentBuild.rawBuild.log
                 echo "Fetch the source code from the ${DIRECTORY_PATH}."
                 echo ' Building .... '
             }
@@ -15,7 +16,7 @@ pipeline {
                 success{
                     mail to: "sakifhasan.work@gmail.com",
                     subject: "Jenkins Build Status Email",
-                        body: " Build Successful ${currentBuild.rawBuild.log}"
+                        body: " Build Successful ${buildLog}"
                 }
             }
         }
