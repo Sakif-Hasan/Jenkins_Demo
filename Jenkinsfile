@@ -54,8 +54,10 @@ pipeline {
         }
         stage("Console Log"){
             steps {
-                echo "${BUILD_URL}/consoleText"
-                pwd
+                //echo "${BUILD_URL}/consoleText"
+                def consoleLog = readFile "${BUILD_URL}/consoleText"
+                echo "${consoleLog}"
+                echo consoleLog
             }
         }
     }
