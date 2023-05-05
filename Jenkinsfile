@@ -49,6 +49,7 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo " Deployed to ${PRODUCTION_ENVIRONMENT} "
+                LOGGER.info
             }
         }
     }
