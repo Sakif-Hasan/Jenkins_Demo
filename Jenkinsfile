@@ -54,12 +54,7 @@ pipeline {
         }
         stage("Console Log"){
             steps {
-                //echo "${BUILD_URL}/consoleText"
-                //script{
-                //    def cLog = readFile "${BUILD_URL}/consoleText"
-                //}
-                wget "${BUILD_URL}/consoleText"
-                //echo cLog
+                echo "${BUILD_URL}/consoleText"
             }
         }
     }
