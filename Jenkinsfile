@@ -55,7 +55,7 @@ pipeline {
         stage("Console Log"){
             steps {
                 echo "${BUILD_URL}/consoleText"
-                echo pwd
+                pwd
             }
         }
     }
