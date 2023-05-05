@@ -60,7 +60,7 @@ pipeline {
                 success{
                     mail to: "sakifhasan.work@gmail.com",
                     subject: "Jenkins Build Console Log",
-                    body: " Build Successful ${BUILD_URL}/consoleText"
+                    body: " Build Successful. See the link for the console log output -> ${BUILD_URL}/consoleText"
                 }
             }
         }
