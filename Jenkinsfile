@@ -53,7 +53,8 @@ pipeline {
         }
         stage("Console Log"){
             steps{
-                echo ${BUILD_URL}/consoleText
+                def var = ${BUILD_URL}/consoleText
+                echo "${var}"
             }
         }
     }
