@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment{
-        DIRECTORY_PATH = ' PATH '
-        TESTING_ENVIRONMENT = ' TEST ENV '
-        PRODUCTION_ENVIRONMENT = ' Sakif_Hasan '
+        DIRECTORY_PATH = ' Github Repo '
+        TESTING_ENVIRONMENT = ' Plutora '
+        PRODUCTION_ENVIRONMENT = ' Digital Ocean '
     }
     stages {
         stage('Build') {
@@ -21,8 +21,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Unit Test'
-                echo 'Integration Test'
+                echo 'Jest Test Successful'
+                echo 'Jasmine Integration Test Successful'
             }
         }
         stage('Code Quality Check') {
@@ -32,17 +32,18 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo "Deploy the application to a testing environment ${TESTING_ENVIRONMENT}"
+                echo " Deployed for testing to ${TESTING_ENVIRONMENT}"
             }
         }
         stage('Approval') {
             steps {
                 sleep(time: 10, unit: 'SECONDS')
+                echo " Approved "
             }
         }
         stage('Deploy to Production') {
             steps {
-                echo "Deploy to Code to the Production Environment ${PRODUCTION_ENVIRONMENT}"
+                echo " Deployed to ${PRODUCTION_ENVIRONMENT} as a Droplet "
             }
         }
     }
