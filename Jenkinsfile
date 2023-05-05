@@ -62,6 +62,7 @@ pipeline {
                     writeFile file: directory + "/buildConsolelog.txt",
                     text: logContent
                 //echo "${BUILD_URL}/consoleText"
+                }
             }
         }
     }
