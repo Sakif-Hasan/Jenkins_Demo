@@ -55,7 +55,7 @@ pipeline {
         stage("Console Log"){
             steps {
                 script{
-                    sh "${BUILD_URL}/consoleText >> log.txt"
+                    sh "curl  ${BUILD_URL}/consoleText -o /Documents/log.txt"
                 }
                 //echo "${BUILD_URL}/consoleText"
             }
