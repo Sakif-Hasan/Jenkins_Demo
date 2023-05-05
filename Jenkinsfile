@@ -48,7 +48,7 @@ pipeline {
         }
         stage('Deploy to Production') {
             steps {
-                echo " Deployed to ${PRODUCTION_ENVIRONMENT} as a Droplet "
+                echo " Deployed to ${PRODUCTION_ENVIRONMENT} "
             }
         }
     }
