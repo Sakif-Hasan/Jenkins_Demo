@@ -56,7 +56,9 @@ pipeline {
             steps {
                 //echo "${BUILD_URL}/consoleText"
                 dir('BUILD_URL'){
-                    def cLog = readFile "/consoleText"
+                    script {
+                        def cLog = readFile "/consoleText"
+                    }
                 }
                 //script{
                 //    dir()def consoleLog = readFile "${BUILD_URL}/consoleText"
