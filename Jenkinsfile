@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    def directory = "${env.WORKSPACE}/Github Integration"
     environment{
         DIRECTORY_PATH = ' Github '
         TESTING_ENVIRONMENT = ' AWS Elastic Beanstalk '
